@@ -12,11 +12,19 @@ AC_PROG_CC
 AC_PROG_INSTALL
 AC_PROG_MAKE_SET
 
+AC_LANG_C
+AC_LANG_CPLUSPLUS
+
+AC_HEADER_STDC
+AC_CHECK_HEADERS([curlpp/cURLpp.hpp])
+
 # Checks for libraries.
 # FIXME: Replace `main' with a function in `-lcrypto':
 AC_CHECK_LIB([crypto], [main])
 # FIXME: Replace `main' with a function in `-lcurlpp':
-AC_CHECK_LIB([curlpp], [main])
+AC_CHECK_LIB([curlpp], [main], [], [
+	echo "curlpp devel library missing. curlpp is required" 
+	exit -1])
 # FIXME: Replace `main' with a function in `-lssl':
 AC_CHECK_LIB([ssl], [main])
 
