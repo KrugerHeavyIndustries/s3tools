@@ -1,0 +1,25 @@
+# Makefile
+# http://www.gnu.org/software/make/manual/make.html
+
+CC=gcc
+
+CFLAGS=-c 
+LDFLAGS=
+SOURCES=s3tool.cpp mime_types.cpp aws_s3_misc.cpp aws_s3.cpp
+OBJECTS=$(SOURCES:.cpp=.o)
+EXECUTABLE=s3tool
+
+all: $(SOURCES) $(EXECUTABLE)
+
+$(EXECUTABLE): $(OBJECTS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.SUFFIXES: .cpp .o 
+
+.cpp.o:
+	$(CC) $(CFLAGS) $< -o $@
+
+clean:
+	rm -f s3tool *.o
+
+
