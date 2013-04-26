@@ -475,10 +475,14 @@ int Command_s3put(size_t wordc, CommandLine & cmds, AWS & aws)
                 io.sendHeaders.Set("Content-Type", inferredType);
         }
         
-        cout << "Headers set" << endl;
-        
+        bool quiet = cmds.opts.Exists("-q");
+
+        if (!quiet) {
+            cout << "Headers set" << endl;
+        }
+       
         io.ostrm = &cout;
-        io.printProgress = true;
+        io.printProgress = !quiet;
         aws.PutObject(bucketName, objectKey, acl, filePath, io);
         if(io.Failure()) {
             cerr << "ERROR: failed to put object" << endl;
