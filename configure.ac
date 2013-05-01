@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([s3tool], [0.01], [BUG-REPORT-ADDRESS] [s3tool] [www])
+AC_INIT([s3tool], [0.5.2], [BUG-REPORT-ADDRESS] [s3tool] [www])
 
 AM_INIT_AUTOMAKE([1.12 -Wall no-define subdir-objects])
 
