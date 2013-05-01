@@ -88,7 +88,6 @@ int main(int argc, char * argv[])
     cmds.flagParams.insert("-p"); // permissions (canned ACL)
     cmds.flagParams.insert("-t"); // type (Content-Type)
     cmds.flagParams.insert("-m"); // metadata
-    cmds.flagParams.insert("-q"); // quiet 
     cmds.Parse(argc, argv);
     size_t wordc = cmds.words.size();
     
